@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGRICROC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap" rel="stylesheet">
+</head>
+
+<body class="relative font-['lugrasimo']">
+    <img src="https://media.nationalgeographic.org/assets/photos/120/983/091a0e2f-b93d-481b-9a60-db520c87ec33.jpg"
+        class="w-[100vw] h-[100vh]" alt="">
+    <div class="box absolute flex w-[100vw] h-[100vh] top-0">
+        <div class="left w-[50%] h-[100%] flex flex-col justify-start items-center py-10">
+            <h1 class="text-black font-bold text-[6vw] z-10">AGRICROC</h1>
+            <p class="text-2xl text-black font-bold mt-20 mx-40">Agricroc is a platform where farmers can know which crop to grow and what is the market demand of the crop, it's average yield, and cost of cropping the crop for one acre</p>
+        </div>
+
+        <div class="right w-[50%] h-[100%] flex justify-center items-center ">
+            <div class="form-container w-[70%] h-auto rounded-xl bg-[rgba(255,255,255,0.3)]">
+                <form action="/predict" method="post" class="form flex flex-col justify-center items-center gap-1 py-5 w-[100%] h-[100%] z-[100]">
+
+                    <label for="" class="font-bold">Ratio of N</label>
+                    <input type="number" name="N" class="w-[90%] p-2 border border-black rounded-lg" placeholder="Enter nitrogen content">
+                    
+                    <label for="" class="font-bold">Ratio of P</label>
+                    <input type="number" name="P" class="w-[90%] p-2 border border-black rounded-lg" placeholder="Enter phosporous content">
+                    
+                    <label for="" class="font-bold">Ratio of K</label>
+                    <input type="number" name="K" class="w-[90%] p-2 border border-black rounded-lg" placeholder="Enter potassium content">
+                    
+                    <label for="" class="font-bold">Temperature</label>
+                    <input type="number" name="temperature" class="w-[90%] p-2 border border-black rounded-lg" placeholder="Enter temperature">
+                    
+                    <label for="" class="font-bold">Humidity</label>
+                    <input type="number" name="humidity" class="w-[90%] p-2 border border-black rounded-lg" placeholder="Enter humidity">
+                    
+                    <label for="" class="font-bold">Ph</label>
+                    <input type="number" name="ph" class="w-[90%] p-2 border border-black rounded-lg" placeholder="Enter ph ">
+                    
+                    <label for="" class="font-bold">Rainfall</label>
+                    <input type="number" name="rainfall" class="w-[90%] p-2 border border-black rounded-lg" placeholder="Enter rainfall">
+
+                    <input type="submit" value="Recommend Crop" class="bg-lime-500 hover:bg-lime-600 duration-200 cursor-pointer px-3 py-2 rounded-lg mt-4"> 
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

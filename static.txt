@@ -1,0 +1,80 @@
+1. pip install virtualenv
+
+2. virtualenv env 
+
+	or 
+
+   python -m virtualenv env
+
+     = if error run the next in powershell as administrator =
+
+        Set-ExecutionPolicy unrestricted
+
+
+3. ACTIVATE THE ENV MODE
+
+    ./env/Scripts/activate
+
+4. for connecting to db
+
+    pip install flask-sqlalchemy
+
+
+5. setting up code
+
+
+
+
+from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///test.db"
+db = SQLAlchemy(app)
+app.app_context().push()
+
+class ToDo(db.Model):
+    sno = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(200), nullable=False)
+    desc = db.Column(db.String(600), nullable=False)
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def __repr__(self) -> str:
+        return f"{self.sno} - {self.title}"
+    
+
+
+@app.route('/')
+def hello_world() :
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True, port=3000)
+
+
+
+
+
+6. AFTER THIS DO THIS EXECUTE THIS COMMANDS IN TERMINAL ENV
+
+   python
+   >>>from app import db
+   >>>db.create_all()
+   >>>quit()
+
+   - with this the db will be created in our current directory
+
+
+
+
+
+
+
+
+
+
+
+
+
